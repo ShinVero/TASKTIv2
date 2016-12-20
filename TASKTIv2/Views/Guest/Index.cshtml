@@ -53,8 +53,8 @@
             @if (item.NamaGuest == User.Identity.GetUserName())
             {
                 <td>
-                    <input type="button" value="Edit" onclick="location.href='@Url.Action("Edit","DataGuest")?IdGuest=' + @item.IdGuest" class="btn"btn-warning" />
-                    <input type="button" value="Delete" onclick="location.href='@Url.Action("Delete","DataGuest")?IdGuest=' + @item.IdGuest" class="btn" btn-danger" />
+                    <input type="button" value="Edit" onclick="location.href='@Url.Action("Edit", "Guest")?id=' + @item.IdGuest" class="btn btn-warning" />
+                    <input type="button" value="Delete" onclick="location.href='@Url.Action("Delete","Guest")?id=' + @item.IdGuest" class="btn btn-danger" />
                 </td>
             }
            
