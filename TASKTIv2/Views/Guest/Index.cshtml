@@ -1,0 +1,63 @@
+﻿@model IEnumerable<TASKTIv2.Models.DataGuest>
+@using Microsoft.AspNet.Identity
+
+@{
+    ViewBag.Title = "Daftar Pengarang";
+}
+
+<h2>Daftar Pengarang</h2>
+<p>
+    @Html.Raw(ViewBag.Pesan)
+</p>
+
+<table style="position:relative;left:80px;top:5px">
+    <tr>
+        <td> <p> @Html.ActionLink("Guest", "Create")</p></td>
+        <td></td>
+        <td align="left">
+            @using (Html.BeginForm("Search", "Guest", FormMethod.Get, new { @style = "display:inline" }))
+            {
+                <input type="text" class="form-control" name="txtSearch" placeholder="Cari nama" />
+                <button type="submit" class="btn btn-gold"><span class="glyphicon glyphicon-search"></span></button>
+            }
+        </td>
+    </tr>
+</table>
+
+<table class="table table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NamaGuest)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Alamat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ucapan)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NamaGuest)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Alamat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ucapan)
+            </td>
+            @if (item.NamaGuest == User.Identity.GetUserName())
+            {
+                <td>
+                    <input type="button" value="Edit" onclick="location.href='@Url.Action("Edit","DataGuest")?IdGuest=' + @item.IdGuest" class="btn"btn-warning" />
+                    <input type="button" value="Delete" onclick="location.href='@Url.Action("Delete","DataGuest")?IdGuest=' + @item.IdGuest" class="btn" btn-danger" />
+                </td>
+            }
+           
+        </tr>
+    }
+</table>
