@@ -2,7 +2,7 @@
 @using Microsoft.AspNet.Identity
 
 @{
-    ViewBag.Title = "Daftar Pengarang";
+    ViewBag.Title = "Daftar GuestBook";
 }
 
 <h2>Daftar Pengarang</h2>
@@ -12,7 +12,7 @@
 
 <table style="position:relative;left:80px;top:5px">
     <tr>
-        <td> <p> @Html.ActionLink("Guest", "Create")</p></td>
+        <td> <p> @Html.ActionLink("Tambah Ucapan", "Create")</p></td>
         <td></td>
         <td align="left">
             @using (Html.BeginForm("Search", "Guest", FormMethod.Get, new { @style = "display:inline" }))

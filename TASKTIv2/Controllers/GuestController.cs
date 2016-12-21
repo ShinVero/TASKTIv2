@@ -59,7 +59,7 @@ namespace TASKTIv2.Controllers
             }
             return RedirectToAction("Index");
         }
-
+        //[Authorize] //<-- menghindari CSRF
         public ActionResult Edit(int id)
         {
             using (GuestDAL services = new GuestDAL())
@@ -90,7 +90,7 @@ namespace TASKTIv2.Controllers
             return RedirectToAction("Index");
         }
 
-
+        //[Authorize] //<-- menghindari CSRF
         public ActionResult Delete(int id)
         {
             using (GuestDAL service = new GuestDAL())

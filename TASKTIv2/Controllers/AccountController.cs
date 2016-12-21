@@ -449,7 +449,7 @@ namespace TASKTIv2.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Guest");
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult
