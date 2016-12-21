@@ -103,25 +103,25 @@ namespace TASKTIv2.DAL
             }
         }
 
-        public IQueryable<DataGuest> Search(string txtsearch)
-        {
-            var results = from m in db.DataGuests
-                          where m.NamaGuest.ToLower().Contains(txtsearch.ToLower())
-                          select m;
-            return results;
-
-        }
-
-        //public IEnumerable<DataGuest> Search(string txtsearch)
+        //public IQueryable<DataGuest> Search(string txtsearch)
         //{
-        //    using (SqlConnection conn = new SqlConnection(GetConnstr()))
-        //    {
-        //        string strsql = @"select * from DataGuest where NamaGuest='" + txtsearch + "'";
+        //    var results = from m in db.DataGuests
+        //                  where m.NamaGuest.ToLower().Contains(txtsearch.ToLower())
+        //                  select m;
+        //    return results;
 
-
-        //        return conn.Query<DataGuest>(strsql);
-        //    }
         //}
+
+        public IEnumerable<DataGuest> Search(string txtsearch)
+        {
+            using (SqlConnection conn = new SqlConnection(GetConnstr()))
+            {
+                string strsql = @"select * from DataGuest where NamaGuest='" + txtsearch + "'";
+
+
+                return conn.Query<DataGuest>(strsql);
+            }
+        }
 
         public void Dispose()
         {

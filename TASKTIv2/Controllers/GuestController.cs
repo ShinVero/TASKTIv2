@@ -33,7 +33,7 @@ namespace TASKTIv2.Controllers
                 return View(service.GetDataByUsername(Id).ToList());
             }
         }
-
+        [Authorize] //<-- maksa Login
         public ActionResult Create()
         {
             return View();
